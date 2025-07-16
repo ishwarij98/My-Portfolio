@@ -4,11 +4,11 @@ import cors from "cors";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
-
+const app = express();
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename); 
 
-const buildPath = path.join(_dirname, "build");
+const buildPath = path.join(_dirname, "dist");
 
 // checks if buildPath exits
 if(fs.existsSync(buildPath)) {
@@ -16,7 +16,7 @@ if(fs.existsSync(buildPath)) {
 }
 
 dotenv.config();
-const app = express();
+//const app = express();
 const PORT = process.env.PORT || 8080;
 
 // ````````` we need not switch on the cors extension in the browser if this is added to the code: 
